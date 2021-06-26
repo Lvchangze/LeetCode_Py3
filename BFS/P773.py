@@ -13,7 +13,8 @@ class Solution:
             x = s.index("0")
             for y in Solution.NEIGHBORS[x]:
                 s[x], s[y] = s[y], s[x]
-                yield "".join(s)
+                print("".join(s))
+                yield "".join(s)  # 每个循环都return "".join(s)，最后这个方法得到一个List
                 s[x], s[y] = s[y], s[x]
 
         initial = "".join(str(num) for num in sum(board, []))
@@ -32,3 +33,8 @@ class Solution:
                     seen.add(next_status)
 
         return -1
+
+
+if __name__ == '__main__':
+    s = Solution()
+    s.slidingPuzzle([[1, 2, 3], [4, 0, 5]])
